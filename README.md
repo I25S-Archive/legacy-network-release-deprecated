@@ -1,5 +1,5 @@
 # Tagion network interface
-This project will contain the all the modules for the Tagion Network which are going to be release in the comming month for the july 2020 and onwards.
+This project will contain the all the modules for the Tagion Network which are going to be release in the coming month for the july 2020 and onwards.
 
 The project now contains.
 
@@ -9,7 +9,9 @@ The project now contains.
 
 
 
-This project contains a number of submodules. The submodules is update via the following command.
+This project contains a number of submodules. The submodules are updated via the following command:.
+
+*IMPORTANT* When the project cloned the first time run the following command
 
 ```bash
 make subdate
