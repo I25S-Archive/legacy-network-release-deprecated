@@ -21,3 +21,7 @@ To run all the unittest.
 make test
 ```
 
+The source code is distributed under the  [LICENSE.md](LICENSE.md)
+
+
+
