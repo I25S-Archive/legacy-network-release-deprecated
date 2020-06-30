@@ -37,6 +37,7 @@ HIBON_BETTERC:=hibon_betterc
 
 TESTS:=${addsuffix -test,$(SUBMODULES)}
 CLEANS:=${addsuffix -clean,$(SUBMODULES)}
+DDOC:=${addsuffix -ddoc,$(SUBMODULES)}
 
 #INSTALL:=${addprefix install-,$(SUBMODULES)}
 
@@ -50,7 +51,7 @@ help:
 	@echo "# REPOROOT  "${REPOROOT}
 
 	@echo "If the repo been clone with out --recursive then run the"
-	@echo "\tmake supdate"
+	@echo "\tmake subdate"
 	@echo
 	@echo "Run the unitest"
 	@echo "\tmake test"
@@ -62,17 +63,23 @@ help:
 	@echo "\tmake clean"
 	@echo
 
-supdate:
+subdate:
 	git submodule update --init --recursive
 
 spull:
 	git pull --recurse-submodules
 
 test: $(TESTS)
-	echo
+	@echo "Unittests done"
 
 %-test:
 	$(MAKE) -C $* test
+
+ddoc: $(DDOC)
+
+%-ddoc:
+	$(MAKE) -C $* ddoc
+
 
 clean: $(CLEANS)
 

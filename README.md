@@ -12,7 +12,7 @@ The project now contains.
 This project contains a number of submodules. The submodules is update via the following command.
 
 ```bash
-make supdate
+make subdate
 ```
 
 To run all the unittest.
