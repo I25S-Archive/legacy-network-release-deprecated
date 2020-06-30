@@ -1,0 +1,6 @@
+*~
+#*
+dfiles.mk
+modules.ddoc
+*.tmp
+.touch
