@@ -84,10 +84,10 @@ test: $(TESTS)
 	$(MAKE) -C $* test
 
 include source.mk
-include dfiles.mk
+-include dfiles.mk
 #DDOCHELP:=help-ddoc
-include $(DDOCBUILDER)
-include $(DDOCBUILDER)
+-include $(DDOCBUILDER)
+-include $(DDOCBUILDER)
 
 proper: $(PROPER)
 
