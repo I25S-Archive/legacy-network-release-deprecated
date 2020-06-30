@@ -2,8 +2,8 @@
 # Tagion main network makefile
 #
 include git.mk
-
-
+include command.mk
+include ddoc.mk
 #REPOROOT:=$(shell git root)
 LIB_PREFIX:=$(REPOROOT)/lib/
 
@@ -15,10 +15,16 @@ TAGION_BASIC:=tagion_basic
 TAGION_UTILS:=tagion_utils
 TAGION_HIBON:=tagion_hibon
 
-SUBMODULES+=$(TAGION_BASIC)
-SUBMODULES+=$(TAGION_UTILS)
-#SUBMODULES+=$(TAGION_HIBON)
+DDOCBUILDER:=$(TAGION_DDOC)/ddoc_builder.mk
+DDOCREPO:=$(TAGION_DDOC)
+DDOCROOT:=ddoc
 
+TAGIONMODULES+=$(TAGION_BASIC)
+TAGIONMODULES+=$(TAGION_UTILS)
+
+SUBMODULES+=$(TAGIONMODULES)
+
+#SUBMODULES+=$(TAGION_HIBON)
 
 SECP256K1_SRC:=secp256k1
 LIBP2P:=libp2pDWrapper
@@ -38,6 +44,8 @@ HIBON_BETTERC:=hibon_betterc
 TESTS:=${addsuffix -test,$(SUBMODULES)}
 CLEANS:=${addsuffix -clean,$(SUBMODULES)}
 DDOC:=${addsuffix -ddoc,$(SUBMODULES)}
+MODULE_DFILES:=${addsuffix -dfiles,$(SUBMODULES)}
+PROPER:=${addsuffix -dfiles,$(SUBMODULES)}
 
 #INSTALL:=${addprefix install-,$(SUBMODULES)}
 
@@ -75,13 +83,26 @@ test: $(TESTS)
 %-test:
 	$(MAKE) -C $* test
 
-ddoc: $(DDOC)
+include source.mk
+include dfiles.mk
+#DDOCHELP:=help-ddoc
+include $(DDOCBUILDER)
+include $(DDOCBUILDER)
 
-%-ddoc:
-	$(MAKE) -C $* ddoc
+proper: $(PROPER)
 
+%-proper:
+	$(MAKE) -C $* proper
 
 clean: $(CLEANS)
+	rm -f dfiles.mk
 
 %-clean:
 	$(MAKE) -C $* clean
+
+test34:
+	echo $(DDOCBUILDER)
+	echo $(DDOCROOT)
+	echo $(DDOCSCRIPT)
+	echo $(DDOCMODULES)
+	echo $(DFILES)
