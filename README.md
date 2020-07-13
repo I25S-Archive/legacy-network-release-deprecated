@@ -3,12 +3,11 @@ This project (tagion_network) will contain all the modules for the Tagion Networ
 
 The project now contains:
 
-**tagion_basic** contains common functions used in the Tagion network. 
+**tagion_basic** contains common functions used in the Tagion network.
 
-**tagion_utils** contains generic function used in the Tagion network.  
+**tagion_utils** contains generic function used in the Tagion network.
 
-**tagion_hibon** contains the Hash invariant Binary Object Notation Tagion network.  
-
+**tagion_hibon** contains the Hash invariant Binary Object Notation Tagion network.
 
 
 This project contains a number of submodules. The submodules are updated via the following command:
@@ -28,6 +27,3 @@ make test
 ```
 
 The source code is distributed under the  [LICENSE.md](LICENSE.md)
-
-
-
