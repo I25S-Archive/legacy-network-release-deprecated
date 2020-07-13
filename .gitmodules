@@ -7,3 +7,6 @@
 [submodule "tagion_ddoc"]
 	path = tagion_ddoc
 	url = https://github.com/tagion/tagion_ddoc.git
+[submodule "tagion_hibon"]
+	path = tagion_hibon
+	url = https://github.com/tagion/tagion_hibon.git
