@@ -7,6 +7,8 @@ The project now contains:
 
 **tagion_utils** contains generic function used in the Tagion network.  
 
+**tagion_hibon** contains the Hash invariant Binary Object Notation Tagion network.  
+
 
 
 This project contains a number of submodules. The submodules are updated via the following command:
