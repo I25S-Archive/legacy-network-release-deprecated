@@ -42,6 +42,7 @@ HIBON_BETTERC:=hibon_betterc
 
 TESTS:=${addsuffix -unittest,$(SUBMODULES)}
 CLEANS:=${addsuffix -clean,$(SUBMODULES)}
+LIBS:=${addsuffix -lib,$(SUBMODULES)}
 DDOC:=${addsuffix -ddoc,$(SUBMODULES)}
 MODULE_DFILES:=${addsuffix -dfiles,$(SUBMODULES)}
 PROPER:=${addsuffix -proper,$(SUBMODULES)}
@@ -61,10 +62,13 @@ help:
 	@echo "\tmake subdate"
 	@echo
 	@echo "Run the unitest"
-	@echo "\tmake test"
+	@echo "\tmake unittest"
 	@echo
 	@echo "All the submodules can be pull by"
 	@echo "\tmake spull"
+	@echo
+	@echo "Build all submodules libaries"
+	@echo "\tmake lib"
 	@echo
 	@echo "The dependecy is cleaned by"
 	@echo "\tmake clean"
@@ -87,6 +91,11 @@ include source.mk
 #DDOCHELP:=help-ddoc
 -include $(DDOCBUILDER)
 #-include $(DDOCBUILDER)
+
+lib: $(LIBS)
+
+%-lib:
+	$(MAKE) -C $* lib
 
 proper: $(PROPER)
 
