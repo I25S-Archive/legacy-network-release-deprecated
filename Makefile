@@ -40,11 +40,11 @@ HIBON_BETTERC:=hibon_betterc
 #SUBMODULES+=$(HIBON_BETTERC)
 
 
-TESTS:=${addsuffix -test,$(SUBMODULES)}
+TESTS:=${addsuffix -unittest,$(SUBMODULES)}
 CLEANS:=${addsuffix -clean,$(SUBMODULES)}
 DDOC:=${addsuffix -ddoc,$(SUBMODULES)}
 MODULE_DFILES:=${addsuffix -dfiles,$(SUBMODULES)}
-PROPER:=${addsuffix -dfiles,$(SUBMODULES)}
+PROPER:=${addsuffix -proper,$(SUBMODULES)}
 
 #INSTALL:=${addprefix install-,$(SUBMODULES)}
 
@@ -80,13 +80,13 @@ unittest: $(TESTS)
 	@echo "Unittests done"
 
 %-unittest:
-	$(MAKE) -C $* test
+	$(MAKE) -C $* unittest
 
 include source.mk
 -include dfiles.mk
 #DDOCHELP:=help-ddoc
 -include $(DDOCBUILDER)
--include $(DDOCBUILDER)
+#-include $(DDOCBUILDER)
 
 proper: $(PROPER)
 
