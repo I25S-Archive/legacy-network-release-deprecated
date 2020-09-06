@@ -76,10 +76,10 @@ subdate:
 spull:
 	git pull --recurse-submodules
 
-test: $(TESTS)
+unittest: $(TESTS)
 	@echo "Unittests done"
 
-%-test:
+%-unittest:
 	$(MAKE) -C $* test
 
 include source.mk
